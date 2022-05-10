@@ -1,68 +1,66 @@
 function settingBillFunc(){
-    //Update button variables
     let aCostOfCall = 0;
     let aCostOfSms = 0;
     let aWarningLevel = 0;
     let aCriticalLevel = 0;
-
-    //Add button variables
+  
     let totalOfCalls = 0;
     let totalOfSms = 0;
-
-    function setCostOfCall(theCallCost){
-        aCostOfCall = theCallCost;
+  
+    function setCostOfCall(theCallCost) {
+      aCostOfCall = theCallCost;
     }
-
-    function getCostOfCall(){
+  
+    function getCostOfCall() {
       return aCostOfCall;
     }
-
-    function setCostOfSms(theSmsCost){
-        aCostOfSms = theSmsCost;
+  
+    function makeCall() {
+      if (!itReachedTheCriticalLevel()) {
+        totalOfCalls += aCostOfCall;
+      }
     }
-
-    function getCostOfSms(){
+  
+    function getTotalCallCost() {
+      return totalOfCalls;
+    }
+  
+    function setCostOfSms(theSmsCost) {
+      aCostOfSms = theSmsCost;
+    }
+  
+    function getCostOfSms() {
       return aCostOfSms;
     }
-
-    function setWarningLevel(theWarningLevel){
-        return aWarningLevel = theWarningLevel;
+  
+    function sendSms() {
+      if (!itReachedTheCriticalLevel()) {
+        totalOfSms += aCostOfSms;
+      }
     }
-
-    function getWarningLevel(){
-        return aWarningLevel;
+  
+    function getTotalSmsCost() {
+      return totalOfSms;
     }
-    
-    function setCriticalLevel(theCriticalLevel){
-        return aCriticalLevel = theCriticalLevel;
+  
+    function setWarningLevel(theWarningLevel) {
+      aWarningLevel = theWarningLevel;
     }
-
-    function getCriticalLevel(){
-        return aCriticalLevel;
+  
+    function getWarningLevel() {
+      return aWarningLevel;
     }
-
-    function makeCall(){
-        if(!itReachedTheCriticalLevel()){
-            totalOfCalls += aCostOfCall;
-        }
+  
+    function setCriticalLevel(theCriticalLevel) {
+      aCriticalLevel = theCriticalLevel;
     }
-
-    function sendSms(){
-        if(!itReachedTheCriticalLevel()){
-            totalOfSms += aCostOfSms
-        } 
+  
+    function getCriticalLevel() {
+      return aCriticalLevel;
     }
-
-    function getTotalCost(){
-       return totalOfCalls + totalOfSms;
-    }
-
-    function getTotalCallCost(){
-        return totalOfCalls;
-    }
-
-    function getTotalSmsCost(){
-       return totalOfSms;
+  
+    function getTotalCost() {
+      return (totalOfCalls + totalOfSms);
     }
     
     function itReachedTheCriticalLevel(){
